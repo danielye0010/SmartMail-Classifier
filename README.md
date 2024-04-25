@@ -62,7 +62,7 @@ Automatically flag emails for review when the model's confidence in classificati
 
 
 ## Contributors
-
+Hosted by team of Research Cyberinfrastructure at UW-Madison CTO
 - **Daniel Ye**
 - **Casey Schacher** 
 - **Bernie Bernstein**
