@@ -1,21 +1,25 @@
 # Email Classifier
 
-## Project Resources
-- **Support Files**: [Google Drive Folder](https://drive.google.com/drive/u/1/folders/1Z4pYzs5GwdmJ45PrAhQ3ljAhrYO1jXDC)
-- **Looker Studio Dashboard**: [View Dashboard](https://lookerstudio.google.com/u/1/reporting/a83f9c32-c6f1-44b0-a2bc-31e258d943e1/page/oIrvD)
-- **Monthly Emails Google Sheet**: [View Google Sheet](https://docs.google.com/spreadsheets/u/1/d/1YzhjixsGiazThC5dxD1d6tE7TpeF1NcV0fRusegtOgQ/edit?usp=drive_web&ouid=116239248667180049470)
-- **Detailed Model Description**: [Google Docs](https://docs.google.com/document/d/1J7x77BfacRxQpYYlaHieyMWikch25IBx/edit?rtpof=true)
-- **GCP VM Details**: Rocky Linux; Instance ID: 1102777180463610226; Name: doit-rci-vm01
-
 ## Introduction
-The Email Classifier project automates the classification of emails from ResearchDrive customers into predefined categories. Originally trained on over 2000 archived emails, the classifier outputs results to a Google Sheet and visualizes them in Looker Studio. This process is managed through scripts executed monthly on a Google Cloud Platform (GCP) Virtual Machine (VM), ensuring continuous data integration and refinement.
+This classifier system automates the entire pipeline for handling emails from ResearchDrive customers, including API downloading, pre-processing, feature engineering, classification, outputting, and visualization. The core classifier, trained on over 2,000 labeled archived emails using SMOTE Random Forest, categorizes emails into 13 predefined labels. Automated scripts, executed monthly on a GCP VM via shell, manage this process, ensuring continuous data integration and refinement. The system seamlessly outputs categorized emails and their labels to a Google Sheet and provides visualizations through Looker Studio.
+
+## Automatic System Pipeline
+- **Download**: Utilizes the WiscIT API query search to collect RD support-related emails for the last 30 days.
+- **Pre-process**: Cleans and preprocesses the raw email data to remove unnecessary information.
+- **Classify**: Emails are cleaned, vectorized, and categorized using the trained model.
+- **Output**: Emails are output to a Google Sheet with their metadata and labels.
+- **Visualization**: Results are visualized in Looker Studio as a monthly summary report.
+- **Automation**: The entire pipeline is managed through scripts executed monthly by shell on a GCP VM, ensuring continuous data integration and refinement.
 
 ## Model Overview
-- **Data Collection**: Utilizes the WiscIT system to collect 2007 support-related emails, filtering out duplicates to ensure quality.
-- **Data Cleaning**: Applies advanced text processing techniques using the Natural Language Toolkit (NLTK) for email preprocessing.
+- **Data Collection**: Utilizes the WiscIT API query search to collect 2007 support-related emails for a specified period.
+- **Data Cleaning**: Applies text processing techniques using NLTK and manual cleaning, including filtering out duplicates and auto-replies.
+- **Feature Engineering**: Extracts relevant features from the cleaned email data for model training.
+- **Labeling**: Combines semi-supervised learning and active learning. Trains a logistic regression model with labeled data, predicts labels for unlabeled data, and manually corrects low-confidence predictions to improve performance.
 - **Exploratory Data Analysis**: Employs K-Means and Hierarchical Clustering to understand the data structure and identify optimal cluster numbers.
-- **Model Training and Evaluation**: Tests various models including Logistic Regression, SVM, Naive Bayes, and Random Forest. Uses class weighting and SMOTE to handle class imbalances.
-- **Testing**: A toy_classifier with GUI is developed to enable text input to test the classify process.
+- **Model Training and Evaluation**: Tests various ML models, using class weighting and SMOTE to handle class imbalances. Evaluates model performance using metrics such as accuracy, precision, recall, and F1-score.
+- **Deployment**: Implements the trained model into the automated system pipeline for real-time classification.
+- **Testing**: Develops a toy classifier with a GUI to enable text input for testing the classification process.
 
 
 ## Dependencies
@@ -69,7 +73,12 @@ Hosted by team of Research Cyberinfrastructure at UW-Madison CTO
 - **ZEKAI OTLES** 
 - **Sam Fosler**
 
-
+## Project Resources
+- **Support Files**: [Google Drive Folder](https://drive.google.com/drive/u/1/folders/1Z4pYzs5GwdmJ45PrAhQ3ljAhrYO1jXDC)
+- **Looker Studio Dashboard**: [View Dashboard](https://lookerstudio.google.com/u/1/reporting/a83f9c32-c6f1-44b0-a2bc-31e258d943e1/page/oIrvD)
+- **Monthly Emails Google Sheet**: [View Google Sheet](https://docs.google.com/spreadsheets/u/1/d/1YzhjixsGiazThC5dxD1d6tE7TpeF1NcV0fRusegtOgQ/edit?usp=drive_web&ouid=116239248667180049470)
+- **Detailed Model Description**: [Google Docs](https://docs.google.com/document/d/1J7x77BfacRxQpYYlaHieyMWikch25IBx/edit?rtpof=true)
+- **GCP VM Details**: Rocky Linux; Instance ID: 1102777180463610226; Name: doit-rci-vm01
 
 
 
