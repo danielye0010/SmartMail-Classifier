@@ -53,7 +53,7 @@ Double check authority :
 There will be an app.log file generated with 1st_api, api error will show here if any.  
 There will be a date_range.json file generated with 1st_api, check if the time range matches your desire in api serching load.
 
-## Potential Improvements
+## Continuous Model Improvement
 1. Quality Control   
 Regularly perform quality checks on the data. For emails where automatic classification results with low confident rate, perform manual annotation.
 
