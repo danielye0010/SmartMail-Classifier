@@ -1,5 +1,8 @@
-# Email Classifier
-**Note**: Only the model components are open source. The automated system remains closed to protect proprietary details and UW-Madison's infrastructure.
+# Email Classifier  
+
+
+## Sensitive Information Disclaimer
+In the interest of security and privacy for UW-Madison, all sensitive information have been either hidden or modified. The provided code and configuration files are designed to demonstrate the functionality of the project without exposing any actual sensitive data. For actual deployment, please replace the placeholders with your real credentials and ensure that they are securely stored using environment variables or secret management tools.
 
 ## Introduction
 This classifier system automates the entire pipeline for handling emails from ResearchDrive customers, including API downloading, pre-processing, feature engineering, classification, outputting, and visualization. The core classifier, trained on over 2,000 labeled archived emails using SMOTE Random Forest, categorizes emails into 13 predefined labels. Automated scripts, executed monthly on a GCP VM via shell, manage this process, ensuring continuous data integration and refinement. The system seamlessly outputs categorized emails and their labels to a Google Sheet and provides visualizations through Looker Studio.
