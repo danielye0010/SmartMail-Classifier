@@ -1,11 +1,11 @@
 # Email Classifier  
 
 
-## Sensitive Information Disclaimer
-In the interest of security and privacy for UW-Madison, all sensitive information have been either hidden or modified. The provided code and configuration files are designed to demonstrate the functionality of the project without exposing any actual sensitive data. For actual deployment, please replace the placeholders with your real credentials and ensure that they are securely stored using environment variables or secret management tools.
+## Sensitive Info Disclaimer
+All sensitive information have been either hidden or modified. The provided code and configuration files are only designed to demonstrate the functionality of this project.
 
 ## Introduction
-This classifier system automates the entire pipeline for handling emails from ResearchDrive customers, including API downloading, pre-processing, feature engineering, classification, outputting, and visualization. The core classifier, trained on over 2,000 labeled archived emails using SMOTE Random Forest, categorizes emails into 13 predefined labels. Automated scripts, executed monthly on a GCP VM via shell, manage this process, ensuring continuous data integration and refinement. The system seamlessly outputs categorized emails and their labels to a Google Sheet and provides visualizations through Looker Studio.
+This classifier system automates the entire pipeline for handling emails from ResearchDrive customers, including API downloading, pre-processing, feature engineering, classification, outputting, and visualization. Trained on over 2,000 labeled archived emails using SMOTE Random Forest, the core classifier categorizes emails into 13 predefined labels. The system outputs categorized emails to a Google Sheet and provides visualizations through Looker Studio. Containerized with Docker for consistency and reproducibility, the process is automated via a monthly cron job on a GCP VM.
 
 
 
@@ -15,7 +15,7 @@ This classifier system automates the entire pipeline for handling emails from Re
 - **Classify**: Emails are cleaned, vectorized, and categorized using the trained model.
 - **Output**: Emails are output to a Google Sheet with their metadata and labels.
 - **Visualization**: Results are visualized in Looker Studio as a monthly summary report.
-- **Automation**: The entire pipeline is managed through scripts executed monthly by shell on a GCP VM, ensuring continuous data integration and refinement.
+- **Automation**: The pipeline is containerized using Docker, ensuring a consistent and reproducible environment. A cron job within the Docker container is scheduled to run monthly on a GCP VM, managing the entire process and ensuring continuous data integration and refinement.
 
 ## Model Overview
 - **Data Collection**: Utilizes the WiscIT API query search to collect 2007 support-related emails for a specified period.
@@ -39,14 +39,7 @@ First, enable Autostart: In "Automation" section, check the box for "Autostart" 
 Then go and edit cron in vm:
 `crontab -e`  
 Then add follwing to set to run automatically at midnight on the first day of each month:  
-`0 0 1 * * /path/to/run_scripts.sh`  
-shutdown the vm  
-`sudo shutdown now`  
-Then save:  
-`:wq`  
-Double check authority :  
-`crontab -l`  
-`chmod +x /path/to/run_scripts.sh`
+`0 0 1 * * docker run --rm -v /path/to/project:/app myproject-image`  
 
 ## Debugging
 
