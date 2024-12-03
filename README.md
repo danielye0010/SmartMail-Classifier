@@ -73,10 +73,6 @@ Hosted by team of Research Cyberinfrastructure at UW-Madison CTO
 - **Sam Fosler**
 
 ## Project Resources
-- **Support Files**: [Google Drive Folder](https://drive.google.com/drive/u/1/folders/1Z4pYzs5GwdmJ45PrAhQ3ljAhrYO1jXDC)
-- **Looker Studio Dashboard**: [View Dashboard](https://lookerstudio.google.com/u/1/reporting/a83f9c32-c6f1-44b0-a2bc-31e258d943e1/page/oIrvD)
-- **Monthly Emails Google Sheet**: [View Google Sheet](https://docs.google.com/spreadsheets/u/1/d/1YzhjixsGiazThC5dxD1d6tE7TpeF1NcV0fRusegtOgQ/edit?usp=drive_web&ouid=116239248667180049470)
-- **Detailed Model Description**: [Google Docs](https://docs.google.com/document/d/1J7x77BfacRxQpYYlaHieyMWikch25IBx/edit?rtpof=true)
 - **GCP VM Details**: Rocky Linux; Instance ID: 1102777180463610226; Name: doit-rci-vm01
 
 
