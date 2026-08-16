@@ -1,0 +1,25 @@
+# Secrets and local configuration
+.env
+*.json
+!*.example.json
+
+# Trained / fitted artifacts
+*.pkl
+*.joblib
+
+# Generated restricted data and logs
+journal_history.json
+date_range.json
+app.log
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

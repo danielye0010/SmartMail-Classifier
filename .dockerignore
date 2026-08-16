@@ -1,0 +1,10 @@
+.git
+.env
+*.pkl
+*.joblib
+*.json
+*.log
+__pycache__/
+.venv/
+venv/
+.DS_Store

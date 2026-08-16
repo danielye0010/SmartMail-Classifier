@@ -1,0 +1,6 @@
+requests
+nltk
+gspread
+google-auth
+python-dotenv
+scikit-learn
